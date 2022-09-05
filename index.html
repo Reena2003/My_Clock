@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MY CLOCK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+</html>
+
+<body>
+    <h1>Good Morning</h1>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
+        const h1 = document.querySelector("h1");
+
+        let d = new Date();
+        let time = d.getHours();
+        if (time < 12) {
+            console.log(h1.textContent = "Good  Morning!🤩");
+        }
+        if (time > 12 && time < 16) {
+            console.log(h1.textContent = "Good Afternoon!🤗");
+        }
+        if (time > 16 && time < 20) {
+            console.log(h1.textContent = "Good Evening!🙂");
+        }
+        if (time > 20) {
+            console.log(h1.textContent = "Good Night!😴");
+        }
+
+        setInterval(() => {
+            let day = new Date();
+
+
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+            hr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        })
+
+
+    </script>
+
+</body>
+
+</html>
